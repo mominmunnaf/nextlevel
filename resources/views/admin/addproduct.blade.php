@@ -1,0 +1,152 @@
+@extends('admin.sidebar')
+
+@section('title')
+    Add Product - NextLevel
+@endsection
+
+@section('content')
+    <!-- page content -->
+
+
+
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3 class="text-danger"><span class="text-danger">Next</span><span class="text-success">Level</span> <small
+                            class="text-secondary">Any Time Everywhere!!</small></h3>
+                </div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+
+
+
+
+
+
+
+            <div class="col-md-12 col-sm-12 ">
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 ">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Add Product <small></small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                            aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a class="dropdown-item" href="#">Settings 1</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br />
+                                <form class="" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data" novalidate>
+                                    @csrf
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Product Name<span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <input class="form-control" name="product_name" required="required" />
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Short Description<span class="required text-danger">*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <textarea required="required" name='short_details' class="form-control" rows="4"></textarea>
+                                        </div>
+                                    </div>    
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Long Description<span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <textarea required="required" name='long_details' class="form-control" rows="4"></textarea></div>
+                                    </div>  
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Price<span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <input class="form-control" name="price" required="required" />
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Quantity<span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <input class="form-control" name="quantity" required="required" />
+                                        </div>
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align" for="exampleFormControlSelect1">Category Name</label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <select name="category_id" class="form-control" id="exampleFormControlSelect1">
+                                                <option>Select Category</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>                                                    
+                                                @endforeach                                                
+                                              </select>
+                                        </div>                                        
+                                    </div>
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align" for="exampleFormControlSelect1">Subcategory Name</label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <select name="subcategory_id" class="form-control" id="exampleFormControlSelect1">
+                                                <option>Select Subcategory</option>
+                                                @foreach ($subcategories as $subcategory)
+                                                <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}</option>                                                    
+                                                @endforeach
+                                              </select>
+                                        </div>                                        
+                                    </div>  
+                                    
+                                    
+                                    <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align">Image<span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <input class="form-control" class='optional' name="image" type="file" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="ln_solid"></div>
+                                    <div class="item form-group">
+                                        <div class="col-md-6 col-sm-6 offset-md-3">
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /page content -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- /page content -->
+@endsection
